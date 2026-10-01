@@ -1,29 +1,66 @@
-#include <iostream>
-#include "bankaccount.h"
+#include<iostream>
+#include<string>
+#include"BankAccount.h"
+using namespace  std;
 
-using namespace std;
 
+int BankAccount::count=0;
 int main()
 {
-    bankaccount account1(10, "abdo", 20000);
-    bankaccount account2(20, "Ahmed", 5000);
-    bankaccount account3;
+    BankAccount account1("Abdelrhman", 1001, 5000);
+    BankAccount account2("Ahmed", 1002, 3000);
 
-    account1.deposit(100);
-    account1.withdrow(900);
+    BankAccount account3;
+    BankAccount account4("Omar", 1003);
 
-    cout << "Account 1:" << endl;
-    account1.accountinfo();
+    BankAccount account5 = account1;
 
-    cout << endl << endl;
+    account1.display();
+    cout << endl;
 
-    cout << "Account 2:" << endl;
-    account2.accountinfo();
+    account2.display();
+    cout << endl;
 
-    cout << endl << endl;
+    account3.display();
+    cout << endl;
 
-    cout << "Account 3:" << endl;
-    account3.accountinfo();
+    account4.display();
+    cout << endl;
+
+    account5.display();
+    cout << endl;
+
+    account1.despoit(1000);
+    account1.display();
+
+    cout << endl;
+
+    account1.transfer(account2, 2000);
+
+    account1.display();
+    cout << endl;
+
+    account2.display();
+    cout << endl;
+
+    BankAccount account6 = account1 + account2;
+
+    account6.display();
+
+    
+
+    if (account1 == account2)
+    {
+        cout << "Accounts have the same balance" << endl;
+    }
+    else
+    {
+        cout << "Accounts have different balances" << endl;
+    }
+
+    
+
+    BankAccount::totalnumacount();
 
     return 0;
 }
